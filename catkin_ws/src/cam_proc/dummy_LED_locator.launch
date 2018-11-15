@@ -1,0 +1,24 @@
+<launch>
+    <arg name="dummy_hunter" default="0" />
+    <node
+        pkg="cam_proc"
+        type="LED_dummy_image.py"
+        name="dummy_cam_image"
+        required="true"
+    />
+
+    <node 
+        pkg="cam_proc"
+        type="LED_dummy_hunter.py"
+        name="dummy_LED_hunter"
+        required="true"
+        if="$(arg dummy_hunter)"
+    />
+    <node 
+        pkg="cam_proc"
+        type="LED_hunter.py"
+        name="LED_hunter"
+        required="true"
+        unless="$(arg dummy_hunter)"
+    />
+</launch>

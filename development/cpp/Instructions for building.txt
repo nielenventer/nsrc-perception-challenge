@@ -1,0 +1,17 @@
+Instructions for building:
+cd <this directory> # i.e. cd /<repo_location>/qual1/development/cpp
+mkdir build
+cd build
+cmake ..
+make
+
+Instructions for running:
+cd <this directory> # i.e. cd /<repo_location>/qual1/development/cpp
+./cloud_viewer 			# run the viewer
+./cloud_transformer 	# run the transformer (with default transformation)
+
+# custom transformation:
+./cloud_transformer <x_translation> <y_translation> <z_translation> <rotation_about_x> <rotation_about_y> <rotation_about_z>
+
+# e.g.
+./cloud_transformer 2.5 0.0 0.0 0.0 0.0 0.7854

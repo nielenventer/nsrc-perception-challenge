@@ -1,0 +1,22 @@
+<launch>
+    <node 
+        pkg="cam_proc"
+        type="LED_hunter.py"
+        name="LED_hunter"
+        required="true"
+    />
+
+    <node 
+        pkg="cloud_proc"
+        type="stereo_point_locator"
+        name="stereo_point_locator"
+        required="true"
+    />
+    
+    <node 
+        pkg="cloud_proc"
+        type="point_aggregator"
+        name="point_aggregator"
+        required="true"
+    />
+</launch>

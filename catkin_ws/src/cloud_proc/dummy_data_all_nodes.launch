@@ -1,0 +1,48 @@
+<launch>
+    <arg name="dummy_hunter" default="0" />
+    <node
+        pkg="cam_proc"
+        type="LED_dummy_image.py"
+        name="dummy_cam_image"
+        required="true"
+    />
+    <node 
+        pkg="cam_proc"
+        type="LED_dummy_hunter.py"
+        name="dummy_LED_hunter"
+        required="true"
+        if="$(arg dummy_hunter)"
+    />
+    <node 
+        pkg="cam_proc"
+        type="LED_hunter.py"
+        name="LED_hunter"
+        required="true"
+        unless="$(arg dummy_hunter)"
+    />
+
+    <node
+        pkg="cloud_proc"
+        type="stereo_dummy_cloud"
+        name="dummy_stereo_cloud"
+        required="true"
+    />
+    <node 
+        pkg="cloud_proc"
+        type="stereo_point_locator"
+        name="stereo_point_locator"
+        required="true"
+    />
+    <node 
+        pkg="cloud_proc"
+        type="lidar_point_locator"
+        name="lidar_point_locator"
+        required="true"
+    />
+    <node 
+        pkg="cloud_proc"
+        type="point_aggregator"
+        name="point_aggregator"
+        required="true"
+    />
+</launch>

@@ -1,0 +1,20 @@
+<launch>
+    <node 
+        pkg="robot_state_publisher"
+        type="state_publisher"
+        name="multisense_robot_state_publisher"
+        required="true">
+        <param name="publish_frequency" type="double" value="50.0"/>
+        <remap from="joint_states" to="/multisense/joint_states"/>
+    </node>
+
+    <node 
+        type="laser_scan_assembler" 
+        pkg="laser_assembler" 
+        name="my_assembler"
+        required="true">
+        <remap from="scan" to="/multisense/lidar_scan"/>
+        <param name="max_scans" type="int" value="400"/>
+        <param name="fixed_frame" type="string" value="head"/>
+    </node>
+</launch>
