@@ -1,5 +1,5 @@
 # NASA's Space Robotics Challenge 2016, Perception Task
-![Alt text](images\\valkyrie.jpg?raw=true "Title")
+![Alt text](images/valkyrie.jpg?raw=true "Title")
 
 An image and point cloud processing task.
 
